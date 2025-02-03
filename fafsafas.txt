@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Invitation</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffebee;
+            color: #d32f2f;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c2185b;
+        }
+        #calendar-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://www.example.com/sweet.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div class="container">
+        <h1>Will you be my Valentine? 💖</h1>
+        <button onclick="showInvitation()">Yes</button>
+        <button onclick="alert('Oh no! 😢 Maybe next time?')">No</button>
+        
+        <div id="invitation" style="display:none;">
+            <h2>This is your official invitation to be my Valentine’s date! 💌</h2>
+            <p>Please select a date when you're free:</p>
+            <div id="calendar-container">
+                <input type="date" id="datePicker">
+                <button onclick="confirmDate()">Confirm</button>
+            </div>
+        </div>
+        
+        <div id="confirmation" style="display:none;">
+            <h3>This is now confirmed! Due to high volume of workload and exams, this year will be special. Even if it's just a few hours, we are able to spend time together! ❤️</h3>
+        </div>
+    </div>
+    
+    <script>
+        function showInvitation() {
+            document.getElementById('invitation').style.display = 'block';
+            document.getElementById('calendar-container').style.display = 'block';
+        }
+        
+        function confirmDate() {
+            const date = document.getElementById('datePicker').value;
+            if (date) {
+                document.getElementById('confirmation').style.display = 'block';
+            } else {
+                alert('Please select a date first!');
+            }
+        }
+    </script>
+</body>
+</html>
